@@ -1,0 +1,492 @@
+[
+  {
+    "stage": "order_level",
+    "order_id": "ORD0053",
+    "method": "excluded_failed_transaction",
+    "note": "Order status is 'failed' - correctly expected to have no settlement or bank record.",
+    "confidence": "high"
+  },
+  {
+    "stage": "order_level",
+    "order_id": "ORD0058",
+    "method": "missing_from_gateway",
+    "note": "Order exists in the shop's ledger but Razorpay's settlement report has no record of it at all.",
+    "confidence": "high"
+  },
+  {
+    "stage": "order_level",
+    "order_id": "ORD0059",
+    "method": "duplicate_ledger_row",
+    "note": "This order_id already appeared earlier in orders.csv - treated as a duplicate log entry, not a second real sale.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_dedupe",
+    "order_id": "ORD0050",
+    "method": "duplicate_settlement_row",
+    "note": "payment_id PAY00050 appears more than once in Razorpay's own settlement report. Treated as one row.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0001",
+    "method": "utr_match",
+    "note": "UTR UTR700001 [payment]: expected 556.71, bank shows 556.71. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0002",
+    "method": "utr_match",
+    "note": "UTR UTR700002 [payment]: expected 2211.71, bank shows 2211.71. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0003",
+    "method": "utr_match",
+    "note": "UTR UTR700003 [payment]: expected 1434.06, bank shows 1434.06. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0004",
+    "method": "utr_match",
+    "note": "UTR UTR700004 [payment]: expected 1549.25, bank shows 1549.25. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0005",
+    "method": "utr_match",
+    "note": "UTR UTR700005 [payment]: expected 8305.68, bank shows 8305.68. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0006",
+    "method": "utr_match",
+    "note": "UTR UTR700006 [payment]: expected 6182.01, bank shows 6182.01. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0007",
+    "method": "utr_match",
+    "note": "UTR UTR700007 [payment]: expected 11892.13, bank shows 11892.13. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0008",
+    "method": "utr_match",
+    "note": "UTR UTR700008 [payment]: expected 10283.89, bank shows 10283.89. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0009",
+    "method": "utr_match",
+    "note": "UTR UTR700009 [payment]: expected 3306.72, bank shows 3306.72. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0010",
+    "method": "utr_match",
+    "note": "UTR UTR700010 [payment]: expected 5685.5, bank shows 5685.5. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0011",
+    "method": "utr_match",
+    "note": "UTR UTR700011 [payment]: expected 8903.39, bank shows 8903.39. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0012",
+    "method": "utr_match",
+    "note": "UTR UTR700012 [payment]: expected 7848.15, bank shows 7848.15. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0013",
+    "method": "utr_match",
+    "note": "UTR UTR700013 [payment]: expected 4378.36, bank shows 4378.36. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0014",
+    "method": "utr_match",
+    "note": "UTR UTR700014 [payment]: expected 8522.96, bank shows 8522.96. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0015",
+    "method": "utr_match",
+    "note": "UTR UTR700015 [payment]: expected 11366.67, bank shows 11366.67. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0016",
+    "method": "utr_match",
+    "note": "UTR UTR700016 [payment]: expected 12716.59, bank shows 12716.59. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0017",
+    "method": "utr_match",
+    "note": "UTR UTR700017 [payment]: expected 9268.01, bank shows 9268.01. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0018",
+    "method": "utr_match",
+    "note": "UTR UTR700018 [payment]: expected 5319.54, bank shows 5319.54. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0019",
+    "method": "utr_match",
+    "note": "UTR UTR700019 [payment]: expected 8997.67, bank shows 8997.67. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0020",
+    "method": "utr_match",
+    "note": "UTR UTR700020 [payment]: expected 2556.56, bank shows 2556.56. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0021",
+    "method": "utr_match",
+    "note": "UTR UTR700021 [payment]: expected 3328.16, bank shows 3328.16. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0022",
+    "method": "utr_match",
+    "note": "UTR UTR700022 [payment]: expected 3505.19, bank shows 3505.19. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0023",
+    "method": "utr_match",
+    "note": "UTR UTR700023 [payment]: expected 5981.54, bank shows 5981.54. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0024",
+    "method": "utr_match",
+    "note": "UTR UTR700024 [payment]: expected 3261.96, bank shows 3261.96. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0025",
+    "method": "utr_match",
+    "note": "UTR UTR700025 [payment]: expected 2232.56, bank shows 2232.56. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0026",
+    "method": "utr_match",
+    "note": "UTR UTR700026 [payment]: expected 7887.39, bank shows 7887.39. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0027",
+    "method": "utr_match",
+    "note": "UTR UTR700027 [payment]: expected 5360.81, bank shows 5360.81. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0028",
+    "method": "utr_match",
+    "note": "UTR UTR700028 [payment]: expected 1490.76, bank shows 1490.76. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0029",
+    "method": "utr_match",
+    "note": "UTR UTR700029 [payment]: expected 2403.95, bank shows 2403.95. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0030",
+    "method": "utr_match",
+    "note": "UTR UTR700030 [payment]: expected 8707.29, bank shows 8707.29. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0031",
+    "method": "utr_match",
+    "note": "UTR UTR700031 [payment]: expected 7746.59, bank shows 7746.59. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0032",
+    "method": "utr_match",
+    "note": "UTR UTR700032 [payment]: expected 10025.87, bank shows 10025.87. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0033",
+    "method": "utr_match",
+    "note": "UTR UTR700033 [payment]: expected 10912.51, bank shows 10912.51. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0034",
+    "method": "utr_match",
+    "note": "UTR UTR700034 [payment]: expected 4436.56, bank shows 4436.56. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0035",
+    "method": "utr_match",
+    "note": "UTR UTR700035 [payment]: expected 13978.61, bank shows 13978.61. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0036",
+    "method": "utr_match",
+    "note": "UTR UTR700036 [payment]: expected 7531.65, bank shows 7531.65. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0037",
+    "method": "utr_match",
+    "note": "UTR UTR700037 [payment]: expected 12358.02, bank shows 12358.02. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0038",
+    "method": "utr_match",
+    "note": "UTR UTR700038 [payment]: expected 2403.92, bank shows 2403.92. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0039",
+    "method": "utr_match",
+    "note": "UTR UTR700039 [payment]: expected 13305.4, bank shows 13305.4. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0040",
+    "method": "utr_match",
+    "note": "UTR UTR700040 [payment]: expected 470.97, bank shows 470.97. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0041",
+    "method": "utr_match",
+    "note": "UTR UTR700041 [payment]: expected 3655.53, bank shows 3655.53. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0042",
+    "method": "utr_match",
+    "note": "UTR UTR700042 [payment]: expected 1433.04, bank shows 1433.04. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0043",
+    "method": "utr_match",
+    "note": "UTR UTR700043 [payment]: expected 14327.86, bank shows 14327.86. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0044",
+    "method": "utr_match",
+    "note": "UTR UTR700044 [payment]: expected 2050.63, bank shows 2050.63. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0045",
+    "method": "utr_match",
+    "note": "UTR UTR700045 [payment]: expected 4025.54, bank shows 4025.54. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0046",
+    "method": "utr_match",
+    "note": "UTR UTR700046 [payment]: expected 1952.8, bank shows 1952.8. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0047",
+    "method": "utr_match",
+    "note": "UTR UTR700047 [refund]: expected -4882.0, bank shows -4882.0. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0048",
+    "method": "utr_match",
+    "note": "UTR UTR700048 [payment]: expected 1729.2, bank shows 1729.2. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0049",
+    "method": "pending_normal",
+    "note": "Settlement STL0049 (payment, orders: ORD0049) has no bank credit yet. Still within a normal window - not an error.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0050",
+    "method": "utr_match",
+    "note": "UTR UTR700049 [payment]: expected 975.42, bank shows 975.42. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0051",
+    "method": "overdue_missing_bank_entry",
+    "note": "Settlement STL0051 (payment, orders: ORD0051) has no bank credit yet. Settlement date has passed - needs investigation.",
+    "confidence": "medium"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0052",
+    "method": "utr_match",
+    "note": "UTR UTR700050 [payment]: expected 325.44, bank shows 325.44. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0054, ORD0055",
+    "method": "utr_match",
+    "note": "UTR UTR700051 (batch: ORD0054, ORD0055) [payment]: expected 2441.0, bank shows 2441.0. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0056",
+    "method": "utr_match",
+    "note": "UTR UTR700052 [payment]: expected 2436.58, bank shows 2436.58. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0057",
+    "method": "utr_match",
+    "note": "UTR UTR700053 [payment]: expected 11575.2, bank shows 11575.2. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0059",
+    "method": "utr_match",
+    "note": "UTR UTR700054 [payment]: expected 1220.5, bank shows 1220.5. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0060",
+    "method": "utr_match",
+    "note": "UTR UTR700055 [payment]: expected 8681.4, bank shows 8681.4. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0061",
+    "method": "utr_match",
+    "note": "UTR UTR700056 [payment]: expected 4340.7, bank shows 4340.7. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0062",
+    "method": "utr_match",
+    "note": "UTR UTR700057 [payment]: expected 6834.8, bank shows 6834.8. Matches. Settlement was held then released - took longer than normal but resolved correctly.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": null,
+    "method": "utr_match",
+    "note": "UTR UTR700058 [adjustment]: expected -150.0, bank shows -150.0. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0063",
+    "method": "utr_match",
+    "note": "UTR UTR700059 [payment]: expected 6346.6, bank shows 6346.6. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0063, ORD0064",
+    "method": "utr_match",
+    "note": "UTR UTR700060 (batch: ORD0063, ORD0064) [payment, refund]: expected -4198.52, bank shows -4198.52. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0065",
+    "method": "utr_match",
+    "note": "UTR UTR700061 [payment]: expected 5787.6, bank shows 5787.6. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": "ORD0065",
+    "method": "utr_match",
+    "note": "UTR UTR700062 [adjustment, chargeback]: expected -6250.0, bank shows -6250.0. Matches.",
+    "confidence": "high"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": null,
+    "method": "unexplained_bank_row",
+    "note": "Bank entry of 1500.0 (UTR UTR799999) has no matching settlement record at all. Needs investigation.",
+    "confidence": "medium"
+  },
+  {
+    "stage": "settlement_to_bank",
+    "order_id": null,
+    "method": "unexplained_bank_row",
+    "note": "Bank entry of -75.0 (UTR UTR899999) has no matching settlement record at all. Needs investigation.",
+    "confidence": "medium"
+  }
+]

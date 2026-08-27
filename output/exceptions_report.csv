@@ -1,0 +1,6 @@
+order_id,utr,entity_type,status,category,explanation,difference
+ORD0049,,payment,pending_normal,Pending settlement (normal),Still within the normal settlement window - not an error.,
+ORD0051,,payment,overdue_missing_bank_entry,Overdue - missing bank entry,"Razorpay's report says this settled, but the money never showed up in the bank statement, and it's now overdue.",
+,UTR799999,,unexplained_bank_row,Unexplained bank entry,A bank credit of 1500.0 has no matching settlement record. Could be an unrecorded adjustment or a misapplied transfer.,
+,UTR899999,,unexplained_bank_row,Unexplained bank entry,A bank debit of -75.0 has no matching settlement record. Could be an unrecorded adjustment or a misapplied transfer.,
+ORD0058,,,missing_from_gateway,Missing from gateway,"This order exists in the shop's own sales system, but Razorpay's settlement report has no record of it at all.",
