@@ -477,6 +477,13 @@
   },
   {
     "stage": "settlement_to_bank",
+    "order_id": "ORD0066",
+    "method": "utr_amount_differs",
+    "note": "UTR UTR700063 [payment]: expected 7811.2, bank shows 7768.7 (diff -42.5).",
+    "confidence": "low"
+  },
+  {
+    "stage": "settlement_to_bank",
     "order_id": null,
     "method": "unexplained_bank_row",
     "note": "Bank entry of 1500.0 (UTR UTR799999) has no matching settlement record at all. Needs investigation.",

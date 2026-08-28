@@ -67,3 +67,4 @@ PAY00064,ORD0064,STL0062,UTR700060,payment,upi,2200,44.0,7.92,2148.08,2026-08-21
 PAY00065,ORD0065,STL0063,UTR700061,payment,international_card,6000,180.0,32.4,5787.6,2026-08-17,settled,,,
 PAY00066,ORD0065,STL0064,UTR700062,chargeback,international_card,6000,0,0,-6000.0,2026-09-07,chargeback,,DSP4471,Principal reversal for disputed transaction
 PAY00067,ORD0065,STL0064,UTR700062,adjustment,international_card,,0,0,-250.0,2026-09-07,settled,,DSP4471,Chargeback processing fee
+PAY00068,ORD0066,STL0065,UTR700063,payment,upi,8000,160.0,28.8,7811.2,2026-08-11,settled,,,

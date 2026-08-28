@@ -1,10 +1,10 @@
 {
   "report_as_of": "2026-08-22",
-  "total_settlement_groups_checked": 66,
+  "total_settlement_groups_checked": 67,
   "matched": 62,
-  "match_rate_percent": 93.9,
+  "match_rate_percent": 92.5,
   "orders_missing_from_gateway": 1,
-  "exceptions_count": 5,
+  "exceptions_count": 6,
   "reconciled_value": 323274.59,
-  "unresolved_value": 0
+  "unresolved_value": 42.5
 }

@@ -242,6 +242,19 @@ add_settlement_event(oid, "", "international_card", orig_date + timedelta(days=2
                        settlement_id=cb_id, override_net=-250.00,
                        dispute_id="DSP4471", notes="Chargeback processing fee")
 
+# 22. Genuinely unexplained mismatch - NOT a fee, NOT a refund, NOT rounding.
+#     This is the one case the simple rules truly cannot explain on their own,
+#     so it's the one that actually forces the AI explanation step to run.
+oid = add_order(8000, "upi", BASE_DATE + timedelta(days=6))
+fee, gst, net = calc_fee(8000, "upi")
+add_settlement_event(oid, 8000, "upi", BASE_DATE + timedelta(days=6), 2, "payment",
+                       override_net=net)
+# The bank statement will show LESS than this settlement promised - by an
+# amount that matches no known fee tier, no refund, nothing documented.
+# (Applied directly to the bank row further down, after settlement_utr exists.)
+UNEXPLAINED_ORDER_ID = oid
+UNEXPLAINED_SHORTFALL = 42.50
+
 print(f"Total orders: {len(orders)}, total settlement events: {len(settlement_events)}")
 
 # ---------------------------------------------------------------------------
@@ -287,8 +300,13 @@ with open("data/settlement_report.csv", "w", newline="") as f:
     writer.writerows(settlement_events)
 
 bank_rows = []
+unexplained_settlement_id = next(
+    e["settlement_id"] for e in settlement_events if e["order_id"] == UNEXPLAINED_ORDER_ID
+)
 for sid, amount in bank_totals.items():
     utr = settlement_id_to_utr[sid]
+    if sid == unexplained_settlement_id:
+        amount = round(amount - UNEXPLAINED_SHORTFALL, 2)  # money that just doesn't add up
     bank_rows.append({"txn_date": bank_dates[sid],
                         "description": f"NEFT CR RAZORPAY SETTLEMENT {utr}",
                         "utr": utr, "credit_amount": round(amount, 2)})
