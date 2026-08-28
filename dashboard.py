@@ -48,11 +48,12 @@ except FileNotFoundError:
 
 st.subheader(f"As of {metrics['report_as_of']}")
 
-m1, m2, m3, m4 = st.columns(4)
-m1.metric("Total records checked", metrics["total_records_checked"])
+m1, m2, m3, m4, m5 = st.columns(5)
+m1.metric("Settlement events checked", metrics["total_settlement_groups_checked"])
 m2.metric("Match rate", f"{metrics['match_rate_percent']}%")
 m3.metric("Reconciled value", f"Rs {metrics['reconciled_value']:,.2f}")
 m4.metric("Unresolved value", f"Rs {metrics['unresolved_value']:,.2f}")
+m5.metric("Missing from gateway", metrics["orders_missing_from_gateway"])
 
 st.divider()
 st.subheader(f"Exceptions ({metrics['exceptions_count']})")
