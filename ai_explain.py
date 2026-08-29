@@ -78,7 +78,11 @@ def _ai_explanation(context):
         f"Difference: {context['difference']}\n"
         f"Order status in shop system: {context.get('order_status')}\n\n"
         f"In one short sentence, explain the most likely reason for this "
-        f"difference for a non-technical shop owner. Be specific and concrete."
+        f"difference for a non-technical shop owner. Be specific and concrete.\n\n"
+        f"Rules: use neutral, factual language only - never accuse any party of "
+        f"wrongdoing or use alarming words like 'stolen' or 'fraud'. If you cannot "
+        f"determine a likely cause with reasonable confidence from the numbers given, "
+        f"say plainly that it needs manual review instead of guessing."
     )
     response = client.messages.create(
         model="claude-sonnet-4-5",
