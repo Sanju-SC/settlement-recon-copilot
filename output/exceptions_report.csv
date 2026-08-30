@@ -1,7 +1,42 @@
-order_id,utr,entity_type,status,category,explanation,difference
-ORD0049,,payment,pending_normal,Pending settlement (normal),Still within the normal settlement window - not an error.,
-ORD0051,,payment,overdue_missing_bank_entry,Overdue - missing bank entry,"Razorpay's report says this settled, but the money never showed up in the bank statement, and it's now overdue.",
-ORD0066,UTR700063,payment,amount_mismatch,Amount mismatch,"[fallback reasoning] Bank received 42.50 LESS than expected. Common causes: an unaccounted refund, an extra gateway fee, or a chargeback. Needs a human to check the specific transaction.",-42.5
-,UTR799999,,unexplained_bank_row,Unexplained bank entry,A bank credit of 1500.0 has no matching settlement record. Could be an unrecorded adjustment or a misapplied transfer.,
-,UTR899999,,unexplained_bank_row,Unexplained bank entry,A bank debit of -75.0 has no matching settlement record. Could be an unrecorded adjustment or a misapplied transfer.,
-ORD0058,,,missing_from_gateway,Missing from gateway,"This order exists in the shop's own sales system, but Razorpay's settlement report has no record of it at all.",
+order_id,utr,entity_type,status,category,explanation,difference,suggested_action,draft_message
+ORD0049,,payment,pending_normal,Pending settlement (normal),Still within the normal settlement window - not an error.,,,
+ORD0051,,payment,overdue_missing_bank_entry,Overdue - missing bank entry,"Razorpay's report says this settled, but the money never showed up in the bank statement, and it's now overdue.",,[fallback] Contact Razorpay support referencing UTR (no UTR) - this payment is past its expected settlement date.,"[fallback draft]
+Hello Razorpay Support,
+
+I'm writing to ask about overdue - missing bank entry on order ORD0051 (UTR: N/A). Our records show: Razorpay's report says this settled, but the money never showed up in the bank statement, and it's now overdue.
+
+Could you please confirm the current status and expected resolution?
+
+Thank you."
+ORD0066,UTR700063,payment,amount_mismatch,Amount mismatch,"[fallback reasoning] Bank received 42.50 LESS than expected. Common causes: an unaccounted refund, an extra gateway fee, or a chargeback. Needs a human to check the specific transaction.",-42.5,[fallback] Review order ORD0066 manually - the settled amount differs from what was expected.,"[fallback draft]
+Hello Razorpay Support,
+
+I'm writing to ask about amount mismatch on order ORD0066 (UTR: UTR700063). Our records show: [fallback reasoning] Bank received 42.50 LESS than expected. Common causes: an unaccounted refund, an extra gateway fee, or a chargeback. Needs a human to check the specific transaction.
+
+Could you please confirm the current status and expected resolution?
+
+Thank you."
+,UTR799999,,unexplained_bank_row,Unexplained bank entry,A bank credit of 1500.0 has no matching settlement record. Could be an unrecorded adjustment or a misapplied transfer.,,"[fallback] Check your bank statement for UTR UTR799999 directly against Razorpay's dashboard, since no settlement record explains it.","[fallback draft]
+Hello Razorpay Support,
+
+I'm writing to ask about unexplained bank entry on order N/A (UTR: UTR799999). Our records show: A bank credit of 1500.0 has no matching settlement record. Could be an unrecorded adjustment or a misapplied transfer.
+
+Could you please confirm the current status and expected resolution?
+
+Thank you."
+,UTR899999,,unexplained_bank_row,Unexplained bank entry,A bank debit of -75.0 has no matching settlement record. Could be an unrecorded adjustment or a misapplied transfer.,,"[fallback] Check your bank statement for UTR UTR899999 directly against Razorpay's dashboard, since no settlement record explains it.","[fallback draft]
+Hello Razorpay Support,
+
+I'm writing to ask about unexplained bank entry on order N/A (UTR: UTR899999). Our records show: A bank debit of -75.0 has no matching settlement record. Could be an unrecorded adjustment or a misapplied transfer.
+
+Could you please confirm the current status and expected resolution?
+
+Thank you."
+ORD0058,,,missing_from_gateway,Missing from gateway,"This order exists in the shop's own sales system, but Razorpay's settlement report has no record of it at all.",,[fallback] Check with Razorpay support whether order ORD0058 was actually processed on their end.,"[fallback draft]
+Hello Razorpay Support,
+
+I'm writing to ask about missing from gateway on order ORD0058 (UTR: N/A). Our records show: This order exists in the shop's own sales system, but Razorpay's settlement report has no record of it at all.
+
+Could you please confirm the current status and expected resolution?
+
+Thank you."

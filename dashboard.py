@@ -55,6 +55,9 @@ m3.metric("Reconciled value", f"Rs {metrics['reconciled_value']:,.2f}")
 m4.metric("Unresolved value", f"Rs {metrics['unresolved_value']:,.2f}")
 m5.metric("Missing from gateway", metrics["orders_missing_from_gateway"])
 
+if metrics.get("summary"):
+    st.info(f"**Summary:** {metrics['summary']}")
+
 st.divider()
 st.subheader(f"Exceptions ({metrics['exceptions_count']})")
 st.caption("Everything that did NOT cleanly match, and why - nothing here was guessed at.")
@@ -79,6 +82,11 @@ else:
             if e.get("difference"):
                 st.write(f"**Difference:** Rs {e['difference']}")
             st.write(f"**Explanation:** {e['explanation']}")
+            if e.get("suggested_action"):
+                st.write(f"**Suggested next step:** {e['suggested_action']}")
+            if e.get("draft_message"):
+                st.write("**Draft message to Razorpay support (copy and send yourself):**")
+                st.code(e["draft_message"], language=None)
 
 st.divider()
 with st.expander("Full audit trail (every decision the engine made)"):

@@ -6,5 +6,6 @@
   "orders_missing_from_gateway": 1,
   "exceptions_count": 6,
   "reconciled_value": 323274.59,
-  "unresolved_value": 42.5
+  "unresolved_value": 42.5,
+  "summary": "[fallback] 62 of 67 transactions reconciled cleanly (92.5%); 6 need a closer look."
 }

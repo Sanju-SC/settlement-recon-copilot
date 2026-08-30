@@ -28,7 +28,7 @@ import json
 from collections import defaultdict
 from datetime import datetime
 
-from ai_explain import explain_exception
+from ai_explain import explain_exception, suggest_next_step, draft_followup_message, generate_summary
 
 REPORT_AS_OF = datetime(2026, 8, 22)
 AMOUNT_TOLERANCE = 0.05
@@ -210,6 +210,17 @@ def build_exceptions(results):
             base["category"] = "Unclassified"
             base["explanation"] = "Did not fit a known category - flagged for manual review."
 
+        # For anything that actually needs a human to DO something (not the
+        # harmless "still pending, wait" case), add a suggested action and a
+        # ready-to-copy message. Nothing here ever sends anything - it only
+        # drafts text for a human to review and send themselves.
+        if base["category"] != "Pending settlement (normal)":
+            base["suggested_action"] = suggest_next_step(base)
+            base["draft_message"] = draft_followup_message(base)
+        else:
+            base["suggested_action"] = ""
+            base["draft_message"] = ""
+
         exceptions.append(base)
     return exceptions
 
@@ -246,12 +257,16 @@ def main():
     # Missing-from-gateway orders have no settlement group at all, so add them
     # as exceptions explicitly here (they never appear in `results`).
     for oid in sorted(missing_from_gateway):
-        exceptions.append({"order_id": oid, "utr": "", "entity_type": "", "status": "missing_from_gateway",
-                            "category": "Missing from gateway",
-                            "explanation": "This order exists in the shop's own sales system, but "
-                                           "Razorpay's settlement report has no record of it at all."})
+        mfg = {"order_id": oid, "utr": "", "entity_type": "", "status": "missing_from_gateway",
+               "category": "Missing from gateway",
+               "explanation": "This order exists in the shop's own sales system, but "
+                              "Razorpay's settlement report has no record of it at all."}
+        mfg["suggested_action"] = suggest_next_step(mfg)
+        mfg["draft_message"] = draft_followup_message(mfg)
+        exceptions.append(mfg)
 
     metrics = compute_metrics(results, order_audit, missing_from_gateway, exceptions)
+    metrics["summary"] = generate_summary(metrics)
     audit_trail = order_audit + bank_audit
 
     with open("output/metrics.json", "w") as f:
@@ -259,7 +274,8 @@ def main():
     with open("output/audit_trail.json", "w") as f:
         json.dump(audit_trail, f, indent=2)
     with open("output/exceptions_report.csv", "w", newline="") as f:
-        fieldnames = ["order_id", "utr", "entity_type", "status", "category", "explanation", "difference"]
+        fieldnames = ["order_id", "utr", "entity_type", "status", "category", "explanation",
+                      "difference", "suggested_action", "draft_message"]
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         for e in exceptions:

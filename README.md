@@ -90,9 +90,17 @@ for - the one case that actually exercises the AI explanation layer.
 
 ## AI usage policy
 
-`ai_explain.py` is the only file that touches an AI model, and only for unresolved
-amount mismatches. If no `ANTHROPIC_API_KEY` is set, or the API call fails for any
-reason, it falls back to rule-based reasoning automatically - this is the project's
+`ai_explain.py` is the only file that touches an AI model, and it has four small,
+specific jobs - nothing else:
+1. Explaining an unresolved amount mismatch in plain English
+2. Suggesting the one practical next step for an exception that needs action
+3. Drafting a ready-to-copy follow-up message to Razorpay support (draft only -
+   nothing in this project ever sends a message automatically; a human always
+   reviews and sends it themselves)
+4. Writing a one-sentence summary at the top of the dashboard
+
+If no `ANTHROPIC_API_KEY` is set, or any API call fails for any reason, every one of
+these falls back to rule-based reasoning automatically - this is the project's
 deliberately-handled failure case, so a live demo never breaks.
 
 ## Architecture
