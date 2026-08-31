@@ -24,6 +24,7 @@ Writes: output/exceptions_report.csv, output/audit_trail.json, output/metrics.js
 """
 
 import csv
+import os
 import json
 from collections import defaultdict
 from datetime import datetime
@@ -269,6 +270,7 @@ def main():
     metrics["summary"] = generate_summary(metrics)
     audit_trail = order_audit + bank_audit
 
+    os.makedirs("output", exist_ok=True)
     with open("output/metrics.json", "w") as f:
         json.dump(metrics, f, indent=2)
     with open("output/audit_trail.json", "w") as f:

@@ -61,11 +61,15 @@ fee math, and totals are 100% deterministic code. AI is used for exactly one job
 explaining an unresolved amount mismatch in plain English. **AI never decides what
 matches what - only rules do.**
 
-## Metrics on the 69-event synthetic set
+## Metrics on the synthetic test set
 
-Run `python reconcile.py` to regenerate current numbers. Last verified run:
-match rate 92.5%, 6 honest exceptions (including one genuine amount mismatch that the
-AI explanation layer actually resolves - see below), Rs 42.50 unresolved value.
+The generator creates 69 raw settlement events (rows). After grouping batched
+payouts and multi-event orders by their bank reference, that becomes **67
+settlement groups** - the number `reconcile.py` actually checks against the
+bank. Run `python reconcile.py` to regenerate current numbers. Last verified
+run: 67 groups checked, match rate 92.5%, 6 honest exceptions (including one
+genuine amount mismatch that the AI explanation layer actually resolves - see
+below), Rs 42.50 unresolved value.
 
 **Note on the AI layer actually running:** most mismatches in real reconciliation data
 have a clean, rule-based reason (a fee, a refund, a timing delay) - so the AI step isn't

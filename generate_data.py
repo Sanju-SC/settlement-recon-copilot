@@ -18,6 +18,7 @@ dispute_id, settled_at.
 """
 
 import csv
+import os
 import random
 from collections import defaultdict
 from datetime import datetime, timedelta
@@ -283,6 +284,7 @@ for e in settlement_events:
 for e in settlement_events:
     e["settlement_utr"] = settlement_id_to_utr.get(e["settlement_id"], "")
 
+os.makedirs("data", exist_ok=True)
 with open("data/orders.csv", "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerow(["order_id", "order_date", "item_amount", "payment_method", "order_status"])
